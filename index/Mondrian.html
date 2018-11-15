@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mondrian Website</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<img src="images/logo.png" id="logo" width="165" height="58">
+
+	<div id="menu">
+		<a id='home'>Home</a>
+		<a id='tree'>Tree</a>
+		<a id='color'>Color</a>
+		<a id='line'>Line</a>
+		<a id='mondrian'>Mondrian</a>
+	</div>
+
+	<img id="photo" src="images/home.jpg" width="90%";>
+
+	<div id="inst">
+		<h1>
+		몬드리안의 신조형주의에 대한 과정을 보여드립니다.
+		</h1>
+		<h1>
+		키보드 2,3,4,5 클릭시 몬드리안의 작품과정을 순서대로 
+		볼 수 있습니다.
+		</h1>
+		<h1>
+		프로세싱으로 마우스오버시 색이 변하도록 설정했습니다.
+		</h1>
+		<h1>
+		몬드리안그림의 인터랙티브한 변화를 보고 싶다면  <a href="https://sangyongpark.github.io/www/index.html">GitHub</a>를 클릭해주세요!	
+		</h1>
+		
+	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous">
+	</script>
+
+	<script>
+		$('#home').click(function(){
+			clickHome();
+		});
+		$('#tree').on('click',clickTree);
+		$('#color').on('click',clickColor);
+		$('#line').on('click',clickLine);
+		$('#mondrian').on('click',clickMondrian);
+		$('#photo').on('mouseenter',mouseEnterPhoto);
+		$('#photo').on('mouseleave',mouseLeavePhoto);
+		$(document).on('keydown',processKeyEvent);//키보드누를때
+
+		//사진을 바꾸기
+		function clickHome(){
+			$('#photo').attr('src','images./home.jpg');
+			$('#tree').css('fontWeight','normal');
+			$('#home').css('fontWeight','bold');
+			$('#color').css('fontWeight','normal');
+			$('#line').css('fontWeight','normal');
+			$('#mondrian').css('fontWeight','normal');
+
+			
+
+		}
+		function clickTree(){
+			$('#photo').attr('src','images./tree.png');
+			$('#tree').css('fontWeight','bold');
+			$('#home').css('fontWeight','normal');
+			$('#color').css('fontWeight','normal');
+			$('#line').css('fontWeight','normal');
+			$('#mondrian').css('fontWeight','normal');
+		}
+		function clickColor(){
+			$('#photo').attr('src','images./color.png');
+			$('#tree').css('fontWeight','normal');
+			$('#home').css('fontWeight','normal');
+			$('#color').css('fontWeight','bold');
+			$('#line').css('fontWeight','normal');
+			$('#mondrian').css('fontWeight','normal');
+		}
+		function clickLine(){
+			$('#photo').attr('src','images./line.png');
+			
+			$('#tree').css('fontWeight','normal');
+			$('#home').css('fontWeight','normal');
+			$('#color').css('fontWeight','normal');
+			$('#line').css('fontWeight','bold');
+			$('#mondrian').css('fontWeight','normal');
+		}
+		function clickMondrian(){
+			$('#photo').attr('src','images./mondrian.png');
+			
+			$('#tree').css('fontWeight','normal');
+			$('#home').css('fontWeight','normal');
+			$('#color').css('fontWeight','normal');
+			$('#line').css('fontWeight','normal');
+			$('#mondrian').css('fontWeight','bold');
+		}
+		//사진에 그림자
+		function mouseEnterPhoto(){
+			$('#photo').css('box-shadow','5px 10px');
+		}
+		function mouseLeavePhoto(){
+			$('#photo').css('box-shadow','none');
+		}
+		//키보드이벤트
+		function processKeyEvent(event){
+			if(event.key==='1'){
+				clickHome();
+			}else if(event.key==='2'){
+				clickTree();
+			}else if(event.key==='3'){
+				clickColor();
+			}else if(event.key==='4'){
+				clickLine();
+			}else if(event.key==='5'){
+				clickMondrian();
+			}
+
+		}
+	</script>
+</body>
+</html>
